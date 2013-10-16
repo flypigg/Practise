@@ -18,19 +18,17 @@ public class TestList{
           f2.appendToTail(node4);f2.appendToTail(node5);f2.appendToTail(node6);
           f1.visitAllNode();System.out.println();
           f2.visitAllNode();System.out.println();
-          t1=f1.getNode(3);t2=f2.getNode(1);
-          Node a1=f1.getPreNode(t1);
-          Node a2=f2.getPreNode(t2);
-          if (a1!=null) {
-          System.out.println(a1.num+" "+a1.name+" "+a1.score);
+          t1=f1.getNode(5);t2=f2.getNode(1);
+          /*if (t1!=null) {
+          System.out.println(t1.num+" "+t1.name+" "+t1.score);
           }
-          if (a2!=null) {
-          System.out.println(a2.num+" "+a2.name+" "+a2.score);
-          }
-          /*t3=f1.getNode(1001,1);
+          if (t2!=null) {
+          System.out.println(t2.num+" "+t2.name+" "+t2.score);
+          }*/
+          t3=f1.getNode(1001,1);
           t4=f2.getNode(1001,1);
           System.out.println(t3.name);
-          System.in.read();*/
+          System.in.read();
      }
 }
 class Node{
@@ -142,27 +140,28 @@ class List{
           return p;
      }
      public Node getPreNode(Node n){
-          Node p=head;   Node pre=null;
-          if (p==null||n==p) {
+          Node p=head;Node pre=head;
+          if (p==n||p==null) {
                System.out.println("There is not the data");
                return null;
           }
           else {
                while (p!=n) {
-                    if (p==null) {
-                         break;
+                    if (p.next==null) {
+                    break;
                     }
                     pre=p;
                     p=p.next;
-               }
-               if (p==n) {
-                   return pre;
-               }
-               else {
-                    System.out.println("There is not the data");
-                    return null;
-               }
           }
+          if (p==n) {
+               return pre;
+          }
+          else {
+               System.out.println("There is not the data");
+               return null;
+          }
+          }
+
      }
      public void insert(Node n,int i){
           Node p=getNode(i);
