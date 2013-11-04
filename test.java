@@ -1,17 +1,32 @@
+import java.io.*;
+import java.util.*;
 public class test {
-	public static void main(String[] args) {
-		dog d1=new dog(1);
-		dog d2=new dog(1);
-		String s1=new String("Hello");
-		String s2=new String("Hello");
-		System.out.println(d1.equals(d2));
-		System.out.println(s1.equals(s2));
+	public static void main(String[] args) throws IOException{
+		System.out.println("Input a data:");
+		Scanner ss=new Scanner(System.in);
+		int n=ss.nextInt();
+		for (int i=1; i<=n; i++) {
+			if (i<=n/2) {
+				for (int j=1; j<=n-i; j++) {
+					System.out.print(" ");
+				}
+				for (int k=1; k<=i; k++) {
+					System.out.print("* ");
+				}
+				System.out.println();
+			}
+			else {
+				for (int j=1; j<i; j++) {
+					System.out.print(" ");
+				}
+				for (int k=0; k<=n-i; k++) {
+					System.out.print("* ");
+				}
+				System.out.println();
+			}
+		}
+		System.in.read();
+
 	}
 }
 
-class dog{
-	int color;
-	public dog(int color){
-		this.color=color;
-	}
-}
